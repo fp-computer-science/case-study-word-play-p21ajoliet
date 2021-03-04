@@ -1,8 +1,16 @@
-#Write a program that contains a function called `uses_only` that takes a word
-# and a string of letters and returns `True` if the word contains only letters in the list. 
-# The program should prompt the user to enter a string of allowed letters and then 
-# use the function to print to the console the number of words in `words.txt` that contain 
-# only the allowed letters.
+#Author: ALJ (AMDG) 3/4/21
 
 def uses_only(word, letters):
-    
+    for letter in word:
+        if letter in letters:
+            return True
+    return True
+
+dletters = input("Type the desired letters: ")
+
+with open("words.txt") as file1:
+    words = file1.readlines()
+
+    for line in words:
+        if uses_only(line, dletters):
+            print(line)
